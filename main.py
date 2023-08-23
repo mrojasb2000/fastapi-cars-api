@@ -3,7 +3,7 @@ import uvicorn
 from routes.cars import car_router
 
 app = FastAPI()
-app.include_router(car_router, prefix="/car")
+app.include_router(car_router, prefix="/cars")
 
 
 @app.get("/")
