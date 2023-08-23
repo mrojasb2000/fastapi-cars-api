@@ -16,6 +16,11 @@ async def car_list() -> dict:
     return {"message": "car list"}
 
 
+@car_router.get("/{id}")
+async def filter_by_id(id):
+    return {"message": f"car_id: {id}"}
+
+
 @car_router.post("/")
 async def create_new_car():
     return {"message": "Post request success"}
