@@ -1,6 +1,6 @@
-from typing import List
+from typing import List, Optional
 from enum import Enum
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel
 
 
 class Fuel(str, Enum):

@@ -1,21 +1,13 @@
-from typing import List
 from fastapi import FastAPI
 import uvicorn
-from models.car import Car
-
+from routes.cars import car_router
 
 app = FastAPI()
+app.include_router(car_router, prefix="/car")
 
 
 @app.get("/")
-async def home():
-    car = Car(
-        brand="Lancia",
-        model="Musa",
-        fuel="PETROL",
-        year="2006",
-        countries=["Italy", "France"]
-    )
+def home():
     return {"message": "Welcome to FastAPI"}
 
 
