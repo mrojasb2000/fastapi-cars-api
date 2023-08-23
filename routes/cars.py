@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException, status
 from models.cars import Car
 
-car_router = APIRouter(tags=["Cars"])
+cars_router = APIRouter(tags=["Cars"])
 
 
-@car_router.get("/")
+@cars_router.get("/")
 async def car_list() -> dict:
     car = Car(
         brand="Lancia",
@@ -16,12 +16,12 @@ async def car_list() -> dict:
     return {"message": "car list"}
 
 
-@car_router.get("/{id}")
-async def filter_by_id(id):
+@cars_router.get("/{id}")
+async def filter_by_id(id: int):
     return {"message": f"car_id: {id}"}
 
 
-@car_router.post("/")
+@cars_router.post("/")
 async def create_new_car():
     return {"message": "Post request success"}
 

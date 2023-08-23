@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 import uvicorn
-from routes.cars import car_router
+from routes.cars import cars_router
+from routes.users import users_router
 
 app = FastAPI()
-app.include_router(car_router, prefix="/cars")
+app.include_router(cars_router, prefix="/cars")
+app.include_router(users_router, prefix="/users")
 
 
 @app.get("/")
