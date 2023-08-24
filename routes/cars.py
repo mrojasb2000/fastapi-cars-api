@@ -16,6 +16,10 @@ async def car_list() -> dict:
     return {"message": "car list"}
 
 
+@cars_router.get("/price")
+async def filter_cars_by_price(min_price: int = 0, max_price: int = 100000):
+    return {"message": f"Listing cars with prices between {min_price} and {max_price}"}
+
 @cars_router.get("/{id}")
 async def filter_by_id(id: int):
     return {"message": f"car_id: {id}"}
@@ -24,5 +28,3 @@ async def filter_by_id(id: int):
 @cars_router.post("/")
 async def create_new_car():
     return {"message": "Post request success"}
-
-
